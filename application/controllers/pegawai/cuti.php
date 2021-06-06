@@ -26,7 +26,56 @@ class Cuti extends CI_Controller
 
 	public function tambah()
 	{
+		$nip 			= $this->session->userdata('pgw_nip');
+
+		$emailConfig = [
+			'protocol'	=> 'smtp',
+			'smtp_host' => 'ssl://smtp.googlemail.com',
+			'smtp_port' => 465,
+			'smtp_user' => 'notiftesting7@gmail.com',
+			'smtp_pass' => 'testnotif123',
+			'mailtype' 	=> 'html',
+			'charset' 	=> 'iso-8859-1'
+		];
+
+		// Set your email information
+		$from = [
+			'email'	=> 'notiftesting7@gmail.com',
+			'name' 	=> 'testing notif'
+		];
+
+		$to = '';
+		$datailemail = $this->m_pegawai->detail_data($nip);
+		foreach ($datailemail as $row) {
+			$to .=  $row->email;
+		}
+
+		$subject = 'Kerjasama Diterima';
+		$pesan = 'Kami telah melihat program kerjasama yang anda tawarkan. Kami berharap dapat melakukan kerjasama yang dapat meningkatkan hubungan kita bersama. <br><br> Balas email ini untuk pembahasan lebih lanjut.<br><br>Terimakasih,<br>Salam Hangat, <br> UPT KSLI Universitas Bengkulu';
+		$this->load->library('email', $emailConfig);
+		$this->email->set_newline("\r\n");
+
+		// Set email preferences
+		$this->email->from($from['email'], $from['name']);
+		$this->email->to($to);
+		$this->email->subject($subject);
+		$this->email->message($pesan);
+
+		// if (!$this->email->send()) {
+		// 	$this->session->set_flashdata('message', '<div class="alert alert-danger alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Gagal mengirim email</div>');
+		// 	redirect(base_url('pegawai/cuti'));
+		// } else {
+		// 	$data = array(
+		// 		'id_cuti' => $id_cuti,
+		// 		'status'  => 'Disetujui'
+		// 	);
+		// 	$this->m_pegawai->setuju($data);
+		// 	// $this->Model_mitra->update_data($where, $data, 'tb_mitra');
+		// 	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Mitra diterima dan email akan dikirimkan kepada mitra terkait</div>');
+		// 	redirect(base_url('admin/verif_cuti'));
+
 		$nip 			    = $this->session->userdata('pgw_nip');
+		$email			    = $this->session->userdata('email');
 		$jenis_cuti			= $this->input->post('jenis', true);
 		$tanggal_mulai 		= $this->input->post('tanggal_mulai', true);
 		$tanggal_akhir 		= $this->input->post('tanggal_akhir', true);
@@ -78,6 +127,7 @@ class Cuti extends CI_Controller
 								'tanggal_akhir' 	=> $tanggal_akhir,
 								'status'			=> $status,
 								'file'				=> $imgName,
+								'email'				=> $email
 
 							);
 						} else {
@@ -88,6 +138,7 @@ class Cuti extends CI_Controller
 								'tanggal_akhir' 	=> $tanggal_akhir,
 								'status'			=> $status,
 								'file'				=> $cek_file->pgw_file,
+								'email'				=> $email
 							);
 						}
 						$this->db->insert('tb_cuti', $data);
@@ -111,6 +162,7 @@ class Cuti extends CI_Controller
 							'tanggal_akhir' 	=> $tanggal_akhir,
 							'status'			=> $status,
 							'file'				=> $imgName,
+							'email'				=> $email
 						);
 
 						$this->db->insert('tb_cuti', $data);
@@ -134,6 +186,7 @@ class Cuti extends CI_Controller
 							'tanggal_akhir' 	=> $tanggal_akhir,
 							'status'			=> $status,
 							'file'				=> $imgName,
+							'email'				=> $email
 						);
 
 						$this->db->insert('tb_cuti', $data);
@@ -157,6 +210,7 @@ class Cuti extends CI_Controller
 							'tanggal_akhir' 	=> $tanggal_akhir,
 							'status'			=> $status,
 							'file'				=> $imgName,
+							'email'				=> $email
 						);
 
 						$this->db->insert('tb_cuti', $data);
@@ -180,6 +234,7 @@ class Cuti extends CI_Controller
 							'tanggal_akhir' 	=> $tanggal_akhir,
 							'status'			=> $status,
 							'file'				=> $imgName,
+							'email'				=> $email
 						);
 
 						$this->db->insert('tb_cuti', $data);
@@ -203,6 +258,7 @@ class Cuti extends CI_Controller
 							'tanggal_akhir' 	=> $tanggal_akhir,
 							'status'			=> $status,
 							'file'				=> $imgName,
+							'email'				=> $email
 						);
 
 						$this->db->insert('tb_cuti', $data);
@@ -226,6 +282,7 @@ class Cuti extends CI_Controller
 							'tanggal_akhir' 	=> $tanggal_akhir,
 							'status'			=> $status,
 							'file'				=> $imgName,
+							'email'				=> $email
 						);
 
 						$this->db->insert('tb_cuti', $data);
@@ -249,6 +306,7 @@ class Cuti extends CI_Controller
 							'tanggal_akhir' 	=> $tanggal_akhir,
 							'status'			=> $status,
 							'file'				=> $imgName,
+							'email'				=> $email
 						);
 
 						$this->db->insert('tb_cuti', $data);
@@ -273,7 +331,7 @@ class Cuti extends CI_Controller
 							'tanggal_akhir' 	=> $tanggal_akhir,
 							'status'			=> $status,
 							'file'				=> $imgName,
-
+							'email'				=> $email
 						);
 						$this->db->insert('tb_cuti', $data);
 						$this->session->set_flashdata('sukses', 'Pengajuan Cuti telah berhasil');
@@ -296,6 +354,7 @@ class Cuti extends CI_Controller
 							'tanggal_akhir' 	=> $tanggal_akhir,
 							'status'			=> $status,
 							'file'				=> $imgName,
+							'email'				=> $email
 						);
 
 						$this->db->insert('tb_cuti', $data);
@@ -319,6 +378,7 @@ class Cuti extends CI_Controller
 							'tanggal_akhir' 	=> $tanggal_akhir,
 							'status'			=> $status,
 							'file'				=> $imgName,
+							'email'				=> $email
 						);
 
 						$this->db->insert('tb_cuti', $data);
@@ -342,6 +402,7 @@ class Cuti extends CI_Controller
 							'tanggal_akhir' 	=> $tanggal_akhir,
 							'status'			=> $status,
 							'file'				=> $imgName,
+							'email'				=> $email
 						);
 
 						$this->db->insert('tb_cuti', $data);
@@ -365,6 +426,7 @@ class Cuti extends CI_Controller
 							'tanggal_akhir' 	=> $tanggal_akhir,
 							'status'			=> $status,
 							'file'				=> $imgName,
+							'email'				=> $email
 						);
 
 						$this->db->insert('tb_cuti', $data);
