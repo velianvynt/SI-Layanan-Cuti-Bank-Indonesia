@@ -13,7 +13,6 @@ class Verif_cuti extends CI_Controller
 		$this->load->model('m_pegawai');
 	}
 
-
 	public function index()
 	{
 		$data['content'] 	= 'admin/verif_cuti';
@@ -41,16 +40,19 @@ class Verif_cuti extends CI_Controller
 		// Set your email information
 		$from = [
 			'email'	=> 'notiftesting7@gmail.com',
-			'name' 	=> 'testing notif'
+			'name' 	=> 'Testing notif'
 		];
 
+		$to = '';
 		$datailemail = $this->m_pegawai->detail_data($id_cuti);
 		foreach ($datailemail as $row) {
-			$to .=  $row->email;
+			$to .= $row->email;
 		}
 
-		$subject = 'Kerjasama Diterima';
-		$pesan = 'Kami telah melihat program kerjasama yang anda tawarkan. Kami berharap dapat melakukan kerjasama yang dapat meningkatkan hubungan kita bersama. <br><br> Balas email ini untuk pembahasan lebih lanjut.<br><br>Terimakasih,<br>Salam Hangat, <br> UPT KSLI Universitas Bengkulu';
+		$subject = 'Pengajuan Cuti Disetujui';
+		$pesan = 'Kami telah melihat pengajuan cuti Anda dan cuti Anda telah kami setujui. <br><br><br>
+		Kepala Dinas, <br>
+		ir. Bambang Budi Djatmiko';
 		$this->load->library('email', $emailConfig);
 		$this->email->set_newline("\r\n");
 
@@ -69,7 +71,6 @@ class Verif_cuti extends CI_Controller
 				'status'  => 'Disetujui'
 			);
 			$this->m_pegawai->setuju($data);
-			// $this->Model_mitra->update_data($where, $data, 'tb_mitra');
 			$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Mitra diterima dan email akan dikirimkan kepada mitra terkait</div>');
 			redirect(base_url('admin/verif_cuti'));
 		}

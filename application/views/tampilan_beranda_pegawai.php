@@ -1,9 +1,9 @@
 <body class="nav-md">
     <div class="container body">
-        <div class="main_container" >
+        <div class="main_container">
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view" style="background: linear-gradient(to bottom right, #0F6C9F   , #0F6C9F   , #0F6C9F  );">
-                   
+
 
                     <div class="clearfix"></div>
 

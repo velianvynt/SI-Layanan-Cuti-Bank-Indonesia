@@ -30,8 +30,8 @@ class M_pegawai extends CI_Model
 	public function detail_data($id)
 	{
 		$this->db->select('*');
-		$this->db->from('tb_pegawai');
-		$this->db->where('pgw_nip', $id);  // Also mention table name here
+		$this->db->from('tb_cuti');
+		$this->db->where('id_cuti', $id);  // Also mention table name here
 		$query = $this->db->get();
 		if ($query->num_rows() > 0)
 			return $query->result();
