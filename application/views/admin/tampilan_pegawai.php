@@ -50,7 +50,7 @@
                                     <?php
                                     $no = 1;
                                     foreach ($pegawai as $pgw) {
-                                        ?>
+                                    ?>
 
                                         <td><?php echo $no++; ?></td>
                                         <td><?php echo $pgw['pgw_nip']; ?></td>
@@ -63,8 +63,8 @@
                                             <a title="Detail Pegawai" href="<?php echo base_url(); ?>index.php/admin/pegawai/detail/<?php echo $pgw['pgw_nip']; ?>" class="btn btn-primary"><i class="fa fa-fw fa-info"></i></a>
 
                                             <a title="Edit Pegawai" data-toggle="modal" data-target="#edit_pegawai<?php echo $pgw['pgw_nip'] ?>" class="btn btn-warning"><i class="fa fa-fw fa-pencil"></i></a>
-                                            <?php if($pgw['pgw_jabatan']!='Kepala Dinas'){ ?>
-                                            <a title="Hapus Pegawai" href="<?php echo base_url(); ?>index.php/admin/pegawai/hapus/<?php echo $pgw['pgw_nip'] ?>" class="btn btn-danger" onclick=" return confirm('Yakin ingin menghapus data ini?')"><i class="fa fa-fw fa-trash-o"></i></a>
+                                            <?php if ($pgw['pgw_jabatan'] != 'Kepala Dinas') { ?>
+                                                <a title="Hapus Pegawai" href="<?php echo base_url(); ?>index.php/admin/pegawai/hapus/<?php echo $pgw['pgw_nip'] ?>" class="btn btn-danger" onclick=" return confirm('Yakin ingin menghapus data ini?')"><i class="fa fa-fw fa-trash-o"></i></a>
                                             <?php } ?>
                                         </td>
 
@@ -144,17 +144,17 @@
                         <label class="control-label col-md-3 col-sm-1 col-xs-12">Jabatan</label>
                         <div class="col-md-9 col-sm-6 col-xs-12">
                             <select required class="form-control" id="jabatan" name="jabatan" placeholder="Jabatan">
-                            <option value="" disabled selected>Pilih Jabatan</option>
-                            <option value="Kepala Bidang Geologi dan Air Tanah">Kepala Bidang Geologi dan Air Tanah</option>
-                            <option value="Kepala Seksi Konservasi Air dan Tanah">Kepala Seksi Konservasi Air dan Tanah</option>
-                            <option value="Kepala Seksi Pengusahaan Air dan Tanah">Kepala Seksi Pengusahaan Air dan Tanah</option>
-                            <option value="Kepala Seksi Pemetaan Geologi dan Air Tanah">Kepala Seksi Pemetaan Geologi dan Air Tanah</option>
-                            <option value="Fungsional Penyelidik Bumi Muda">Fungsional Penyelidik Bumi Muda</option>
-                            <option value="Penelaah Data Sumber Daya Alam">Penelaah Data Sumber Daya Alam</option>
-                            <option value="Analis Potensi Sumber Air Tanah">Analis Potensi Sumber Air Tanah </option>
-                            <option value="Analis Perencanaan, Evaluasi, dan Pelaporan">Analis Perencanaan, Evaluasi, dan Pelaporan</option>
-                            <option value="Pengelola Data">Pengelola Data</option>
-                            <option value="Pengadministrasian Persuratan">Pengadministrasian Persuratan</option>
+                                <option value="" disabled selected>Pilih Jabatan</option>
+                                <option value="Kepala Bidang Geologi dan Air Tanah">Kepala Bidang Geologi dan Air Tanah</option>
+                                <option value="Kepala Seksi Konservasi Air dan Tanah">Kepala Seksi Konservasi Air dan Tanah</option>
+                                <option value="Kepala Seksi Pengusahaan Air dan Tanah">Kepala Seksi Pengusahaan Air dan Tanah</option>
+                                <option value="Kepala Seksi Pemetaan Geologi dan Air Tanah">Kepala Seksi Pemetaan Geologi dan Air Tanah</option>
+                                <option value="Fungsional Penyelidik Bumi Muda">Fungsional Penyelidik Bumi Muda</option>
+                                <option value="Penelaah Data Sumber Daya Alam">Penelaah Data Sumber Daya Alam</option>
+                                <option value="Analis Potensi Sumber Air Tanah">Analis Potensi Sumber Air Tanah </option>
+                                <option value="Analis Perencanaan, Evaluasi, dan Pelaporan">Analis Perencanaan, Evaluasi, dan Pelaporan</option>
+                                <option value="Pengelola Data">Pengelola Data</option>
+                                <option value="Pengadministrasian Persuratan">Pengadministrasian Persuratan</option>
                             </select>
                         </div>
                     </div>
@@ -179,17 +179,24 @@
                     </div>
 
                     <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-1 col-xs-12">Email</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input required type="text" class="form-control" id="email" name="email" placeholder="Email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label class="control-label col-md-3 col-sm-1 col-xs-12">Pendidikan Terakhir</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <select required type="text" class="form-control" id="pendidikan terakhir" name="pendidikanterakhir" placeholder="Pendidikan Terakhir">
-                                        <option value="" disabled selected>Pilih Pendidikan</option>
-                                        <option value="SMA">SMA</option>
-                                        <option value="D1">D1</option>
-                                        <option value="D3">D3</option>
-                                        <option value="D4">D4</option>
-                                        <option value="S1">S1</option>
-                                        <option value="S2">S2</option>
-                                        <option value="S3">S3</option>
+                                <option value="" disabled selected>Pilih Pendidikan</option>
+                                <option value="SMA">SMA</option>
+                                <option value="D1">D1</option>
+                                <option value="D3">D3</option>
+                                <option value="D4">D4</option>
+                                <option value="S1">S1</option>
+                                <option value="S2">S2</option>
+                                <option value="S3">S3</option>
                             </select>
                         </div>
                     </div>
@@ -225,7 +232,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-1 col-xs-12">NIP</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input required type="number" class="form-control" id="nip" name="nip" placeholder="NIP" value="<?php echo $list['pgw_nip'] ?>" >
+                                <input required type="number" class="form-control" id="nip" name="nip" placeholder="NIP" value="<?php echo $list['pgw_nip'] ?>">
                             </div>
                         </div>
 
@@ -267,7 +274,9 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-1 col-xs-12">Nama Jabatan</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input required type="text" class="form-control" id="jabatan" <?php if($list['pgw_jabatan']=="Kepala Dinas"){ echo"readonly";} ?> name="jabatan" placeholder="Jabatan" value="<?php echo $list['pgw_jabatan'] ?>">
+                                <input required type="text" class="form-control" id="jabatan" <?php if ($list['pgw_jabatan'] == "Kepala Dinas") {
+                                                                                                    echo "readonly";
+                                                                                                } ?> name="jabatan" placeholder="Jabatan" value="<?php echo $list['pgw_jabatan'] ?>">
                             </div>
                         </div>
 

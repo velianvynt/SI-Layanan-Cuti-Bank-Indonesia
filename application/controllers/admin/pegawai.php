@@ -28,7 +28,7 @@ class Pegawai extends CI_Controller
 
 	public function riwayat($id)
 	{
-		$query = $this->db->query("SELECT * FROM tb_pegawai JOIN tb_cuti ON tb_pegawai.pgw_nip = tb_cuti.nip WHERE tb_cuti.status = 'Disetujui' AND tb_pegawai.pgw_nip =".$id)->result();
+		$query = $this->db->query("SELECT * FROM tb_pegawai JOIN tb_cuti ON tb_pegawai.pgw_nip = tb_cuti.nip WHERE tb_cuti.status = 'Disetujui' AND tb_pegawai.pgw_nip =" . $id)->result();
 		$data['content'] 	= 'admin/riwayat';
 		$data['judul']  	= 'Riwayat Cuti';
 		$data['sub_judul'] 	= '';
@@ -53,7 +53,6 @@ class Pegawai extends CI_Controller
 
 	public function tambah()
 	{
-
 		// cek nip pegawai
 		$nip_pgw 	= $this->input->post('nip', true);
 		$data_pgw 	= $this->m_pegawai->get_nip($nip_pgw);
@@ -63,18 +62,16 @@ class Pegawai extends CI_Controller
 			redirect('admin/pegawai');
 		}
 
-		// Insert Data
-
 		$data = [
-
-			"pgw_nip" 			=> $this->input->post('nip', true),
-			"pgw_nama" 			=> $this->input->post('nama', true),
-			"pgw_tempatlahir" 	=> $this->input->post('tempatlahir', true),
-			"pgw_tgllahir" 		=> $this->input->post('tgllahir', true),
-			"pgw_jk" 			=> $this->input->post('jk', true),
-			"pgw_jabatan" 		=> $this->input->post('jabatan', true),
-			"pgw_golongan" 		=> $this->input->post('golongan', true),
-			"pgw_PendidikanTerakhir" 	=> $this->input->post('pendidikanterakhir', true),
+			"pgw_nip" 					=> $this->input->post('nip', true),
+			"pgw_nama" 					=> $this->input->post('nama', true),
+			"pgw_tempatlahir" 			=> $this->input->post('tempatlahir', true),
+			"pgw_tgllahir" 				=> $this->input->post('tgllahir', true),
+			"pgw_jk" 					=> $this->input->post('jk', true),
+			"pgw_jabatan" 				=> $this->input->post('jabatan', true),
+			"pgw_golongan" 				=> $this->input->post('golongan', true),
+			"email"						=> $this->input->post('email', true),
+			"pgw_PendidikanTerakhir" 	=> $this->input->post('pendidikanterakhir', true)
 		];
 
 		$this->db->insert('tb_pegawai', $data);
