@@ -298,6 +298,14 @@
                                 </select>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-1 col-xs-12">Email</label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input required type="text" class="form-control" id="email" name="email" value="<?php echo $list['email'] ?>">
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-1 col-xs-12">Pendidikan Terakhir</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">

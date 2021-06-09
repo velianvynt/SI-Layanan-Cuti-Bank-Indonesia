@@ -81,17 +81,16 @@ class Pegawai extends CI_Controller
 
 	public function edit($id)
 	{
-
 		$data = [
-
-			"pgw_nip" 			=> $this->input->post('nip', true),
-			"pgw_nama" 			=> $this->input->post('nama', true),
-			"pgw_tempatlahir" 	=> $this->input->post('tempatlahir', true),
-			"pgw_tgllahir" 		=> $this->input->post('tgllahir', true),
-			"pgw_jk" 			=> $this->input->post('jk', true),
-			"pgw_jabatan" 		=> $this->input->post('jabatan', true),
-			"pgw_golongan" 		=> $this->input->post('golongan', true),
-			"pgw_PendidikanTerakhir" 	=> $this->input->post('pendidikanterakhir', true),
+			"pgw_nip" 					=> $this->input->post('nip', true),
+			"pgw_nama" 					=> $this->input->post('nama', true),
+			"pgw_tempatlahir" 			=> $this->input->post('tempatlahir', true),
+			"pgw_tgllahir" 				=> $this->input->post('tgllahir', true),
+			"pgw_jk" 					=> $this->input->post('jk', true),
+			"pgw_jabatan" 				=> $this->input->post('jabatan', true),
+			"pgw_golongan" 				=> $this->input->post('golongan', true),
+			"email" 					=> $this->input->post('email', true),
+			"pgw_PendidikanTerakhir" 	=> $this->input->post('pendidikanterakhir', true)
 		];
 
 		$this->m_pegawai->edit($id, $data);
