@@ -35,8 +35,10 @@ class Login extends CI_Controller
 			$jk = $cek2->pgw_jk;
 			$jabatan = $cek2->pgw_jabatan;
 			$golongan = $cek2->pgw_golongan;
+			$email = $cek2->email;
 
 			$this->session->set_userdata('pgw_nama', $username);
+			$this->session->set_userdata('email', $email);
 			$this->session->set_userdata('pgw_tempatlahir', $tempatlahir);
 			$this->session->set_userdata('pgw_tgllahir', $tgl_lahir);
 			$this->session->set_userdata('pgw_jk', $jk);

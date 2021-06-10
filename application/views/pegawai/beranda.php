@@ -26,15 +26,14 @@
                     <div class="x_content">
 
                         <h4>Selamat Datang, <?php echo strtoupper($this->session->userdata('pgw_nama')); ?></h4>
-
                     </div>
                 </div>
             </div>
         </div>
 
-       
-        </div>
+
     </div>
+</div>
 </div>
 <!-- /page content -->
 

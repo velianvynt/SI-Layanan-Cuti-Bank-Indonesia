@@ -26,54 +26,6 @@ class Cuti extends CI_Controller
 
 	public function tambah()
 	{
-		$nip 			= $this->session->userdata('pgw_nip');
-
-		$emailConfig = [
-			'protocol'	=> 'smtp',
-			'smtp_host' => 'ssl://smtp.googlemail.com',
-			'smtp_port' => 465,
-			'smtp_user' => 'notiftesting7@gmail.com',
-			'smtp_pass' => 'testnotif123',
-			'mailtype' 	=> 'html',
-			'charset' 	=> 'iso-8859-1'
-		];
-
-		// Set your email information
-		$from = [
-			'email'	=> 'notiftesting7@gmail.com',
-			'name' 	=> 'testing notif'
-		];
-
-		$to = '';
-		$datailemail = $this->m_pegawai->detail_data($nip);
-		foreach ($datailemail as $row) {
-			$to .=  $row->email;
-		}
-
-		$subject = 'Kerjasama Diterima';
-		$pesan = 'Kami telah melihat program kerjasama yang anda tawarkan. Kami berharap dapat melakukan kerjasama yang dapat meningkatkan hubungan kita bersama. <br><br> Balas email ini untuk pembahasan lebih lanjut.<br><br>Terimakasih,<br>Salam Hangat, <br> UPT KSLI Universitas Bengkulu';
-		$this->load->library('email', $emailConfig);
-		$this->email->set_newline("\r\n");
-
-		// Set email preferences
-		$this->email->from($from['email'], $from['name']);
-		$this->email->to($to);
-		$this->email->subject($subject);
-		$this->email->message($pesan);
-
-		// if (!$this->email->send()) {
-		// 	$this->session->set_flashdata('message', '<div class="alert alert-danger alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Gagal mengirim email</div>');
-		// 	redirect(base_url('pegawai/cuti'));
-		// } else {
-		// 	$data = array(
-		// 		'id_cuti' => $id_cuti,
-		// 		'status'  => 'Disetujui'
-		// 	);
-		// 	$this->m_pegawai->setuju($data);
-		// 	// $this->Model_mitra->update_data($where, $data, 'tb_mitra');
-		// 	$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Mitra diterima dan email akan dikirimkan kepada mitra terkait</div>');
-		// 	redirect(base_url('admin/verif_cuti'));
-
 		$nip 			    = $this->session->userdata('pgw_nip');
 		$email			    = $this->session->userdata('email');
 		$jenis_cuti			= $this->input->post('jenis', true);
@@ -84,7 +36,6 @@ class Cuti extends CI_Controller
 		$imgName2 = "";
 		if ($gambar = '' && $gambar2 = '') {
 		} else {
-
 			$config['upload_path']          = './uploads/';
 			$config['allowed_types']        = 'jpg|png|jpeg|pdf|doc|docx';
 			$config['max_size']             = 1000000;
@@ -93,6 +44,7 @@ class Cuti extends CI_Controller
 			$cek_file = $this->db->query('select * from tb_pegawai where pgw_nip=' . $nip)->row();
 			if (empty($cek_file->pgw_file)) {
 				$this->load->library('upload', $config);
+
 				if ($this->upload->do_upload('file')) {
 					$data = $this->upload->data();
 					$imgName =  $data['file_name'];
@@ -120,7 +72,6 @@ class Cuti extends CI_Controller
 						if (empty($cek_file->pgw_file)) {
 							$this->db->query("update tb_pegawai set pgw_file='" . $imgName . "' where pgw_nip=" . $nip);
 							$data = array(
-
 								'nip'		    	=> $nip,
 								'jenis_cuti' 		=> 'Cuti Bersalin',
 								'tanggal_mulai' 	=> $tanggal_mulai,
@@ -128,7 +79,6 @@ class Cuti extends CI_Controller
 								'status'			=> $status,
 								'file'				=> $imgName,
 								'email'				=> $email
-
 							);
 						} else {
 							$data = array(
@@ -181,12 +131,12 @@ class Cuti extends CI_Controller
 					} else {
 						$data = array(
 							'nip'		    	=> $nip,
+							'email'				=> $email,
 							'jenis_cuti' 		=> 'Cuti Besar',
 							'tanggal_mulai' 	=> $tanggal_mulai,
 							'tanggal_akhir' 	=> $tanggal_akhir,
 							'status'			=> $status,
 							'file'				=> $imgName,
-							'email'				=> $email
 						);
 
 						$this->db->insert('tb_cuti', $data);
