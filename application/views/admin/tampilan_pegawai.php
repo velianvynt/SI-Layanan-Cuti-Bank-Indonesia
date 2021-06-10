@@ -186,6 +186,13 @@
                     </div>
 
                     <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-1 col-xs-12">Masa Kerja</label>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <input required type="number" class="form-control" id="masa" name="masa" placeholder="Masa Kerja">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label class="control-label col-md-3 col-sm-1 col-xs-12">Pendidikan Terakhir</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <select required type="text" class="form-control" id="pendidikan terakhir" name="pendidikanterakhir" placeholder="Pendidikan Terakhir">
@@ -201,7 +208,19 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-1 col-xs-12">Tahun lulus</label>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <input required type="number" class="form-control" id="lulus" name="lulus" placeholder="Tahun lulus">
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-1 col-xs-12">Usia</label>
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <input required type="number" class="form-control" id="usia" name="usia" placeholder="Usia">
+                        </div>
+                    </div>
                 </div>
 
                 <div class="modal-footer">
