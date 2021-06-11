@@ -51,8 +51,8 @@ class Verif_cuti extends CI_Controller
 
 		$subject = 'Pengajuan Cuti Disetujui';
 		$pesan = 'Kami telah melihat pengajuan cuti Anda dan cuti Anda telah kami setujui. <br><br><br>
-		Kepala Dinas, <br>
-		ir. Bambang Budi Djatmiko';
+		Bidang Kehumasan, <br>
+		Bank Indonesia Provinsi Bengkulu';
 		$this->load->library('email', $emailConfig);
 		$this->email->set_newline("\r\n");
 
