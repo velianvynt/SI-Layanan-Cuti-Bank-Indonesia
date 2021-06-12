@@ -3,12 +3,10 @@
         <h3>Menu Utama</h3>
         <ul class="nav side-menu">
 
-            <li><a href="<?php echo base_url(); ?>beranda"><i class="fa fa-home"></i> Beranda </a>
-            </li>
-
+            <li><a href="<?php echo base_url(); ?>beranda"><i class="fa fa-home"></i> Beranda </a></li>
             <li><a href="<?php echo base_url(); ?>admin/pegawai"><i class="fa fa-users"></i> Data Pegawai</a></li>
-
             <li><a href="<?php echo base_url(); ?>admin/verif_cuti"><i class="fa fa-folder-o"></i> Verifikasi Cuti</a></li>
+            <li><a href="<?php echo base_url(); ?>admin/report"><i class="fa fa-book"></i> Laporan</a></li>
 
         </ul>
     </div>
