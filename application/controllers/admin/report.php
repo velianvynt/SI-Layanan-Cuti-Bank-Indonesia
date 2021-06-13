@@ -10,7 +10,7 @@ class Report extends CI_Controller
         if (!$this->session->userdata('username')) {
             redirect('login');
         }
-        $this->load->model('m_pegawai');
+        // $this->load->model('m_pegawai');
     }
 
     public function index()
@@ -22,5 +22,23 @@ class Report extends CI_Controller
         $this->load->view('layout/header');
         $this->load->view('tampilan_beranda', $data);
         $this->load->view('layout/footer');
+    }
+
+    public function print()
+    {
+        $from_date  = $this->input->post('from_date');
+        $to_date    = $this->input->post('to_date');
+
+        $data = array(
+            'from_date' => $from_date,
+            'to_date' => $to_date
+        );
+
+        $data['list'] = $this->m_admin->print($data);
+
+        $this->load->library('pdf');
+        $this->pdf->setPaper('A4', 'potrait');
+        $this->pdf->filename = "Laporan Cuti.php";
+        $this->pdf->load_view('admin/reportStudent', $data);
     }
 }
