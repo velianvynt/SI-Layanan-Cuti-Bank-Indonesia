@@ -6,22 +6,22 @@
                 <h3>Cetak Laporan</h3>
                 <br>    
 
-                <form class="form-horizontal" action="<?= base_url(); ?>index.php/admin/print" method="POST">
+                <form class="form-horizontal" action="<?= base_url(); ?>index.php/admin/report/print" method="POST">
                     <div class="from-group" style="margin-top: 10px;">
-                        <label for="from_date" class="control-label col-md-4">Dari Tanggal</label>
+                        <label for="from_date" class="control-label col-md-4">Cuti dari Tanggal</label>
                         <div class="col-md-5" style="margin-bottom: 20px">
                             <input type="date" class="form-control" id="from_date" name="from_date" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="to_date" class="control-label col-md-4">Sampai Tanggal</label>
+                        <label for="to_date" class="control-label col-md-4">Cuti sampai Tanggal</label>
                         <div class="col-md-5">
                             <input type="date" class="form-control" id="to_date" name="to_date" required>
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-success" style="float:right; margin-right: 138px; margin-top: 25px;" target="_blank">Create Report</button>
+                    <button type="submit" class="btn btn-success" style="float:right; margin-right: 138px; margin-top: 25px;" target="_blank">Buat Laporan</button>
 
                 </form>
 

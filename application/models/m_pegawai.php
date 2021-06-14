@@ -36,4 +36,18 @@ class M_pegawai extends CI_Model
 		if ($query->num_rows() > 0)
 			return $query->result();
 	}
+
+	public function print($data)
+    {
+        $from_date = $data['from_date'];
+        $to_date = $data['to_date'];
+
+		$this->db->select('nip, pgw_nama, jenis_cuti, tanggal_mulai, tanggal_akhir, status')
+			->where('tanggal_mulai >=', $from_date)
+			->where('tanggal_akhir <=', $to_date)
+            ->join('tb_pegawai', 'tb_pegawai.pgw_nip = tb_cuti.nip')
+            ->order_by('tanggal_mulai');
+
+        return $this->db->get('tb_cuti')->result_array();
+    }
 }

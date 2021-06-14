@@ -10,7 +10,7 @@ class Report extends CI_Controller
         if (!$this->session->userdata('username')) {
             redirect('login');
         }
-        // $this->load->model('m_pegawai');
+        $this->load->model('m_pegawai');
     }
 
     public function index()
@@ -34,11 +34,11 @@ class Report extends CI_Controller
             'to_date' => $to_date
         );
 
-        $data['list'] = $this->m_admin->print($data);
+        $data['list'] = $this->m_pegawai->print($data);
 
         $this->load->library('pdf');
         $this->pdf->setPaper('A4', 'potrait');
         $this->pdf->filename = "Laporan Cuti.php";
-        $this->pdf->load_view('admin/reportStudent', $data);
+        $this->pdf->load_view('admin/print_laporan', $data);
     }
 }
