@@ -8,14 +8,14 @@
 
                 <form class="form-horizontal" action="<?= base_url(); ?>index.php/admin/report/print" method="POST">
                     <div class="from-group" style="margin-top: 10px;">
-                        <label for="from_date" class="control-label col-md-4">Cuti dari Tanggal</label>
+                        <label for="from_date" class="control-label col-md-4">Tanggal Mulai Cuti</label>
                         <div class="col-md-5" style="margin-bottom: 20px">
                             <input type="date" class="form-control" id="from_date" name="from_date" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="to_date" class="control-label col-md-4">Cuti sampai Tanggal</label>
+                        <label for="to_date" class="control-label col-md-4">Tanggal Akhir Cuti</label>
                         <div class="col-md-5">
                             <input type="date" class="form-control" id="to_date" name="to_date" required>
                         </div>
