@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Report</title>
+    <title>Laporan Cuti</title>
     <link rel="stylesheet" href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css">
 </head>
 
@@ -13,11 +13,10 @@
         <table style="width: 100%;">
             <tr>
                 <td>
-                    <!-- <img src="assets/login/logo.jpeg" width="80px"> -->
-
+                    <img src="assets/images/logo-BI.png" width="80px">
                 </td>
                 <td>
-                    <h3 style="font-family:Arial, Helvetica, sans-serif">LANTERN HOUSE</h3>
+                    <h3 style="font-family:Arial, Helvetica, sans-serif">BANK INDONESIA PROVINSI BENGKULU</h3>
                     <p>Jl. Mawar No. 6 Nusa Indah, Bengkulu</p>
                 </td>
             </tr>
@@ -25,7 +24,7 @@
 
         <hr class="line-title" style="border: 1px solid black">
 
-        <h4 style="text-align: center; font-family:Arial, Helvetica, sans-serif">LIST STUDENTS</h4>
+        <h4 style="text-align: center; font-family:Arial, Helvetica, sans-serif">DAFTAR CUTI</h4>
         <br>
 
         <table class="table-bordered" style="width: 100%;">

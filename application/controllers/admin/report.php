@@ -15,9 +15,9 @@ class Report extends CI_Controller
 
     public function index()
     {
-        $data['content']     = 'admin/report';
-        $data['judul']       = 'Halaman';
-        $data['sub_judul']     = "Beranda";
+        $data['content']    = 'admin/report';
+        $data['judul']      = 'Halaman';
+        $data['sub_judul']  = "Beranda";
 
         $this->load->view('layout/header');
         $this->load->view('tampilan_beranda', $data);
