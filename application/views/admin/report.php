@@ -21,7 +21,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-success" style="float:right; margin-right: 138px; margin-top: 25px;" target="_blank">Buat Laporan</button>
+                    <button type="submit" target="_blank" class="btn btn-success" style="float:right; margin-right: 138px; margin-top: 25px;">Buat Laporan</button>
 
                 </form>
 
