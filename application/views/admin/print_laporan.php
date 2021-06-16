@@ -25,18 +25,18 @@
 
         <hr class="line-title" style="border: 1px solid black">
 
-        <h4 style="text-align: center; font-family:Arial, Helvetica, sans-serif"><u>DAFTAR CUTI</u></h4>
+        <h4 style="text-align: center; font-family:Arial, Helvetica, sans-serif">DAFTAR CUTI</h4>
         <br>
 
         <table class="table-bordered" style="width: 100%;">
             <tr>
-                <th style="padding: 4px; text-align: center;">No</th>
-                <th style="padding: 4px; text-align: center;">NIP</th>
-                <th style="padding: 4px; text-align: center;">Nama</th>
-                <th style="padding: 4px; text-align: center;">Jenis Cuti</th>
-                <th style="padding: 4px; text-align: center;">Tanggal Mulai Cuti</th>
-                <th style="padding: 4px; text-align: center;">Tanggal Akhir Cuti</th>
-                <th style="padding: 4px; text-align: center;">Status</th>
+                <th style="padding: 3px; text-align: center;">No</th>
+                <th style="padding: 3px; text-align: center;">NIP</th>
+                <th style="padding: 3px; text-align: center;">Nama</th>
+                <th style="padding: 3px; text-align: center;">Jenis Cuti</th>
+                <th style="padding: 3px; text-align: center;">Tanggal Mulai Cuti</th>
+                <th style="padding: 3px; text-align: center;">Tanggal Akhir Cuti</th>
+                <th style="padding: 3px; text-align: center;">Status</th>
             </tr>
 
             <?php $no = 1; ?>
