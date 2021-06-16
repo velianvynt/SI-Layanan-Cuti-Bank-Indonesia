@@ -28,7 +28,7 @@
         <br>
 
         <table class="table-bordered" style="width: 100%;">
-            <tr style="background-color: lightblue;">
+            <tr>
                 <th style="padding: 4px; text-align: center;">No</th>
                 <th style="padding: 4px; text-align: center;">NIP</th>
                 <th style="padding: 4px; text-align: center;">Nama</th>
