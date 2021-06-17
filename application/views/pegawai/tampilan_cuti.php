@@ -126,8 +126,8 @@
                   <label for="formGroupExampleInput">Jenis Cuti</label>
                   <select required type="text" class="form-control" id="jenis" name="jenis" placeholder="Jenis Cuti">
                     <option> -- Pilih Jenis Cuti -- </option>
-                    <option value="1">Cuti Bersalin</option>
-                    <option value="2">Cuti Bersalin Anak Ke-4/Lebih</option>
+                    <!-- <option value="1">Cuti Bersalin</option>
+                    <option value="2">Cuti Bersalin Anak Ke-4/Lebih</option> -->
                     <option value="3">Cuti Besar</option>
                     <option value="4">Cuti Dalam Rangka Remise</option>
                     <option value="5">Cuti Ibadah Keagamaan</option>

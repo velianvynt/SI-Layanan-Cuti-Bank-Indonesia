@@ -125,12 +125,5 @@ class Verif_cuti extends CI_Controller
 			$this->session->set_flashdata('message', '<div class="alert alert-success alert-message"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4><i class="icon fa fa-check"></i>Mitra diterima dan email akan dikirimkan kepada mitra terkait</div>');
 			redirect(base_url('admin/verif_cuti'));
 		}
-
-		// $data = array(
-		// 	'id_cuti' => $id_cuti,
-		// 	'status'  => 'Ditolak'
-		// );
-		// $this->m_pegawai->setuju($data);
-		// redirect('beranda', 'refresh');
 	}
 }
