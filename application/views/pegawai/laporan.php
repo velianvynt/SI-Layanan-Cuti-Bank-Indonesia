@@ -54,9 +54,7 @@
 
 	<div style="margin-right: 20%; float: right;">
 		<p>Mengetahui</p>
-		<p>KEPALA DINAS</p><br><br>
-		<p><u><?= $hasil->pgw_nama ?></u></p>
-		<p><?= $hasil->pgw_nip ?></p>
+		<p>Bidang Humas</p>
 	</div>
 
 </body>
