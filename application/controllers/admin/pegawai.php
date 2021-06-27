@@ -22,7 +22,7 @@ class Pegawai extends CI_Controller
 		$data['pegawai']	= $this->db->query('select * from tb_pegawai order by pgw_golongan desc')->result_array();
 
 		$this->load->view('layout/header');
-		$this->load->view('tampilan_beranda', $data);
+		$this->load->view('tampilan_beranda', $data); 
 		$this->load->view('layout/footer');
 	}
 

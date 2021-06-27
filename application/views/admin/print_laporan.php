@@ -9,7 +9,7 @@
     <!-- <link rel="stylesheet" href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css"> -->
 </head>
 
-<body>
+<body onload="javascript:window.print()">
     <div class="container">
         <table style="width: 100%;">
             <tr>

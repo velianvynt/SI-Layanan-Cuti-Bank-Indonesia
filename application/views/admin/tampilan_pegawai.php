@@ -63,7 +63,7 @@
                                             <a title="Detail Pegawai" href="<?php echo base_url(); ?>index.php/admin/pegawai/detail/<?php echo $pgw['pgw_nip']; ?>" class="btn btn-primary"><i class="fa fa-fw fa-info"></i></a>
 
                                             <a title="Edit Pegawai" data-toggle="modal" data-target="#edit_pegawai<?php echo $pgw['pgw_nip'] ?>" class="btn btn-warning"><i class="fa fa-fw fa-pencil"></i></a>
-                                            <?php if ($pgw['pgw_jabatan'] != 'Kepala Dinas') { ?>
+                                            <?php if ($pgw['pgw_jabatan'] != 'Kepala Dinas') { ?> 
                                                 <a title="Hapus Pegawai" href="<?php echo base_url(); ?>index.php/admin/pegawai/hapus/<?php echo $pgw['pgw_nip'] ?>" class="btn btn-danger" onclick=" return confirm('Yakin ingin menghapus data ini?')"><i class="fa fa-fw fa-trash-o"></i></a>
                                             <?php } ?>
                                         </td>
@@ -142,39 +142,15 @@
 
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-1 col-xs-12">Jabatan</label>
-                        <div class="col-md-9 col-sm-6 col-xs-12">
-                            <select required class="form-control" id="jabatan" name="jabatan" placeholder="Jabatan">
-                                <option value="" disabled selected>Pilih Jabatan</option>
-                                <option value="Kepala Bidang Geologi dan Air Tanah">Kepala Bidang Geologi dan Air Tanah</option>
-                                <option value="Kepala Seksi Konservasi Air dan Tanah">Kepala Seksi Konservasi Air dan Tanah</option>
-                                <option value="Kepala Seksi Pengusahaan Air dan Tanah">Kepala Seksi Pengusahaan Air dan Tanah</option>
-                                <option value="Kepala Seksi Pemetaan Geologi dan Air Tanah">Kepala Seksi Pemetaan Geologi dan Air Tanah</option>
-                                <option value="Fungsional Penyelidik Bumi Muda">Fungsional Penyelidik Bumi Muda</option>
-                                <option value="Penelaah Data Sumber Daya Alam">Penelaah Data Sumber Daya Alam</option>
-                                <option value="Analis Potensi Sumber Air Tanah">Analis Potensi Sumber Air Tanah </option>
-                                <option value="Analis Perencanaan, Evaluasi, dan Pelaporan">Analis Perencanaan, Evaluasi, dan Pelaporan</option>
-                                <option value="Pengelola Data">Pengelola Data</option>
-                                <option value="Pengadministrasian Persuratan">Pengadministrasian Persuratan</option>
-                            </select>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input required type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Jabatan">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-1 col-xs-12">Golongan</label>
                         <div class="col-md-4 col-sm-9 col-xs-12">
-                            <select id="golongan" name="golongan" class="form-control">
-                                <option>Pilih Golongan</option>
-                                <option value="II/b">II/b</option>
-                                <option value="II/c">II/c</option>
-                                <option value="II/d">II/d</option>
-                                <option value="III/a">III/a</option>
-                                <option value="III/b">III/b</option>
-                                <option value="III/c">III/c</option>
-                                <option value="III/d">III/d</option>
-                                <option value="IV/a">IV/a</option>
-                                <option value="IV/b">IV/b</option>
-                                <option value="IV/c">IV/c</option>
-                            </select>
+                            <input required type="text" class="form-control" id="golongan" name="golongan" placeholder="Golongan">
                         </div>
                     </div>
 
@@ -302,19 +278,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-1 col-xs-12">Golongan</label>
                             <div class="col-md-4 col-sm-9 col-xs-12">
-                                <select id="golongan" name="golongan" class="form-control">
-                                    <option>Choose option</option>
-                                    <option value="II/b">II/b</option>
-                                    <option value="II/c">II/c</option>
-                                    <option value="II/d">II/d</option>
-                                    <option value="III/a">III/a</option>
-                                    <option value="III/b">III/b</option>
-                                    <option value="III/c">III/c</option>
-                                    <option value="III/d">III/d</option>
-                                    <option value="IV/a">IV/a</option>
-                                    <option value="IV/b">IV/b</option>
-                                    <option value="IV/c">IV/c</option>
-                                </select>
+                            <input required type="text" class="form-control" id="golongan" name="golongan" value="<?php echo $list['pgw_golongan'] ?>">
                             </div>
                         </div>
 

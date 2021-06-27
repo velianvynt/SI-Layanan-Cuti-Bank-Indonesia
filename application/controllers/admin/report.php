@@ -36,9 +36,9 @@ class Report extends CI_Controller
 
         $data['list'] = $this->m_pegawai->print($data);
 
-        $this->load->library('pdf');
-        $this->pdf->setPaper('A4', 'potrait');
-        $this->pdf->filename = "Laporan Cuti.php";
+        // $this->load->library('pdf');
+        // $this->pdf->setPaper('A4', 'potrait');
+        // $this->pdf->filename = "Laporan Cuti.php";
         $this->pdf->load_view('admin/print_laporan', $data);
     }
 }
