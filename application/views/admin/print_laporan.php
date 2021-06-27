@@ -14,7 +14,7 @@
         <table style="width: 100%;">
             <tr>
                 <td>
-                    <img src="assets/images/logo-BI.png" width="80px">
+                    <img src="<?= base_url(); ?>assets/images/logo-BI.png" width="80px">
                 </td>
                 <td>
                     <h4 style="font-family:Arial, Helvetica, sans-serif">BANK INDONESIA PROVINSI BENGKULU</h4>
