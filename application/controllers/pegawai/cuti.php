@@ -55,10 +55,15 @@ class Cuti extends CI_Controller
 
 			if ($imgName != null) {
 				$que = $this->db->query("SELECT * from tb_cuti where status = 'Belum Diverifikasi' AND nip =" . $nip)->num_rows();
+				$que1 = $this->db->query("SELECT * FROM tb_cuti where tanggal_mulai >= '$tanggal_mulai' AND nip = '$nip' OR tanggal_akhir <= '$tanggal_akhir'")->num_rows();
 				if ($que >= 1) {
-					$this->session->set_flashdata('no', 'Pengajuan Cuti Gagal, Karena anda telah memilikki data pengajuan yang belum diverifikasi');
+					$this->session->set_flashdata('no', 'Pengajuan Cuti Gagal, Karena anda telah memiliki data pengajuan yang belum diverifikasi');
 					redirect('pegawai/cuti', 'refresh');
-				} elseif ($jenis_cuti == "1") {
+				} elseif ($que1 >= 1) {
+					$this->session->set_flashdata('no', 'Pengajuan Cuti Gagal, Karena anda telah cuti pada tanggal tersebut');
+					redirect('pegawai/cuti', 'refresh');
+				}
+				elseif ($jenis_cuti == "1") {
 					$query = $this->db->query("SELECT id_cuti, datediff(tanggal_akhir, tanggal_mulai) as selisih , SUM(datediff(tanggal_akhir, tanggal_mulai)) as jumlah from tb_cuti WHERE jenis_cuti =Cuti Bersalin' AND nip = " . $nip)->row();
 
 					$awal  = date_create($tanggal_mulai);
