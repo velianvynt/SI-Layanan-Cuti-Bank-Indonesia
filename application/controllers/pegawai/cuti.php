@@ -55,12 +55,12 @@ class Cuti extends CI_Controller
 
 			if ($imgName != null) {
 				$que = $this->db->query("SELECT * from tb_cuti where status = 'Belum Diverifikasi' AND nip =" . $nip)->num_rows();
-				$que1 = $this->db->query("SELECT * FROM tb_cuti where tanggal_mulai >= '$tanggal_mulai' AND nip = '$nip' OR tanggal_akhir <= '$tanggal_akhir'")->num_rows();
+				$que1 = $this->db->query("SELECT * FROM tb_cuti where tanggal_mulai between '$tanggal_mulai' AND '$tanggal_akhir' AND nip = '$nip'")->num_rows();
 				if ($que >= 1) {
-					$this->session->set_flashdata('no', 'Pengajuan Cuti Gagal, Karena anda telah memiliki data pengajuan yang belum diverifikasi');
+					$this->session->set_flashdata('no', 'Pengajuan Cuti Gagal, karena anda telah memiliki data pengajuan yang belum diverifikasi');
 					redirect('pegawai/cuti', 'refresh');
 				} elseif ($que1 >= 1) {
-					$this->session->set_flashdata('no', 'Pengajuan Cuti Gagal, Karena anda telah cuti pada tanggal tersebut');
+					$this->session->set_flashdata('no', 'Pengajuan Cuti Gagal, karena anda telah cuti pada tanggal tersebut');
 					redirect('pegawai/cuti', 'refresh');
 				}
 				elseif ($jenis_cuti == "1") {
@@ -101,12 +101,13 @@ class Cuti extends CI_Controller
 						redirect('pegawai/cuti', 'refresh');
 					}
 				} elseif ($jenis_cuti == "2") {
-					$query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Bersalin Anak Ke-4/Lebih' AND nip = " . $nip)->num_rows();
+					// $query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Bersalin Anak Ke-4/Lebih' AND nip = " . $nip)->num_rows();
 					$quer = $this->db->query("SELECT * from tb_cuti where status = 'Disetujui' AND jenis_cuti = '  	Cuti Bersalin Anak Ke-4/Lebih' AND nip = " . $nip)->num_rows();
-					if ($query >= 1) {
-						$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
-						redirect('pegawai/cuti', 'refresh');
-					} elseif ($quer >= 1) {
+					// if ($query >= 1) {
+					// 	$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
+					// 	redirect('pegawai/cuti', 'refresh');
+					// } 
+					if ($quer >= 1) {
 						$this->session->set_flashdata('gag', 'Pengajuan Cuti Gagal Karena anda sudah pernah cuti pada tahun ini');
 						redirect('pegawai/cuti', 'refresh');
 					} else {
@@ -125,12 +126,13 @@ class Cuti extends CI_Controller
 						redirect('pegawai/cuti', 'refresh');
 					}
 				} elseif ($jenis_cuti == "3") {
-					$query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Besar' AND nip = " . $nip)->num_rows();
+					// $query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Besar' AND nip = " . $nip)->num_rows();
 					$quer = $this->db->query("SELECT * from tb_cuti where status = 'Disetujui' AND jenis_cuti = '  	Cuti Besar' AND nip = " . $nip)->num_rows();
-					if ($query >= 1) {
-						$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
-						redirect('pegawai/cuti', 'refresh');
-					} elseif ($quer >= 1) {
+					// if ($query >= 1) {
+					// 	$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
+					// 	redirect('pegawai/cuti', 'refresh');
+					// } 
+					if ($quer >= 1) {
 						$this->session->set_flashdata('gag', 'Pengajuan Cuti Gagal Karena anda sudah pernah cuti pada tahun ini');
 						redirect('pegawai/cuti', 'refresh');
 					} else {
@@ -149,12 +151,13 @@ class Cuti extends CI_Controller
 						redirect('pegawai/cuti', 'refresh');
 					}
 				} elseif ($jenis_cuti == "4") {
-					$query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Dalam Rangka Remise' AND nip = " . $nip)->num_rows();
+					// $query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Dalam Rangka Remise' AND nip = " . $nip)->num_rows();
 					$quer = $this->db->query("SELECT * from tb_cuti where status = 'Disetujui' AND jenis_cuti = '  	Cuti Dalam Rangka Remise' AND nip = " . $nip)->num_rows();
-					if ($query >= 1) {
-						$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
-						redirect('pegawai/cuti', 'refresh');
-					} elseif ($quer >= 1) {
+					// if ($query >= 1) {
+					// 	$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
+					// 	redirect('pegawai/cuti', 'refresh');
+					// } 
+					if ($quer >= 1) {
 						$this->session->set_flashdata('gag', 'Pengajuan Cuti Gagal Karena anda sudah pernah cuti pada tahun ini');
 						redirect('pegawai/cuti', 'refresh');
 					} else {
@@ -173,12 +176,13 @@ class Cuti extends CI_Controller
 						redirect('pegawai/cuti', 'refresh');
 					}
 				} elseif ($jenis_cuti == "5") {
-					$query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Ibadah Keagamaan' AND nip = " . $nip)->num_rows();
+					// $query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Ibadah Keagamaan' AND nip = " . $nip)->num_rows();
 					$quer = $this->db->query("SELECT * from tb_cuti where status = 'Disetujui' AND jenis_cuti = '  	Cuti Ibadah Keagamaan' AND nip = " . $nip)->num_rows();
-					if ($query >= 1) {
-						$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
-						redirect('pegawai/cuti', 'refresh');
-					} elseif ($quer >= 1) {
+					// if ($query >= 1) {
+					// 	$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
+					// 	redirect('pegawai/cuti', 'refresh');
+					// } 
+					if ($quer >= 1) {
 						$this->session->set_flashdata('gag', 'Pengajuan Cuti Gagal Karena anda sudah pernah cuti pada tahun ini');
 						redirect('pegawai/cuti', 'refresh');
 					} else {
@@ -197,12 +201,13 @@ class Cuti extends CI_Controller
 						redirect('pegawai/cuti', 'refresh');
 					}
 				} elseif ($jenis_cuti == "6") {
-					$query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Istri Pegawai Melahirkan' AND nip = " . $nip)->num_rows();
+					// $query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Istri Pegawai Melahirkan' AND nip = " . $nip)->num_rows();
 					$quer = $this->db->query("SELECT * from tb_cuti where status = 'Disetujui' AND jenis_cuti = '  	Cuti Istri Pegawai Melahirkan' AND nip = " . $nip)->num_rows();
-					if ($query >= 1) {
-						$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
-						redirect('pegawai/cuti', 'refresh');
-					} elseif ($quer >= 1) {
+					// if ($query >= 1) {
+					// 	$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
+					// 	redirect('pegawai/cuti', 'refresh');
+					// } 
+					if ($quer >= 1) {
 						$this->session->set_flashdata('gag', 'Pengajuan Cuti Gagal Karena anda sudah pernah cuti pada tahun ini');
 						redirect('pegawai/cuti', 'refresh');
 					} else {
@@ -221,12 +226,13 @@ class Cuti extends CI_Controller
 						redirect('pegawai/cuti', 'refresh');
 					}
 				} elseif ($jenis_cuti == "8") {
-					$query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Kematian Menantu' AND nip = " . $nip)->num_rows();
+					// $query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Kematian Menantu' AND nip = " . $nip)->num_rows();
 					$quer = $this->db->query("SELECT * from tb_cuti where status = 'Disetujui' AND jenis_cuti = '  	Cuti Kematian Menantu' AND nip = " . $nip)->num_rows();
-					if ($query >= 1) {
-						$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
-						redirect('pegawai/cuti', 'refresh');
-					} elseif ($quer >= 1) {
+					// if ($query >= 1) {
+					// 	$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
+					// 	redirect('pegawai/cuti', 'refresh');
+					// } 
+					if ($quer >= 1) {
 						$this->session->set_flashdata('gag', 'Pengajuan Cuti Gagal Karena anda sudah pernah cuti pada tahun ini');
 						redirect('pegawai/cuti', 'refresh');
 					} else {
@@ -245,12 +251,13 @@ class Cuti extends CI_Controller
 						redirect('pegawai/cuti', 'refresh');
 					}
 				} elseif ($jenis_cuti == "9") {
-					$query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Kematian Orang Tua/Mertua' AND nip = " . $nip)->num_rows();
+					// $query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Kematian Orang Tua/Mertua' AND nip = " . $nip)->num_rows();
 					$quer = $this->db->query("SELECT * from tb_cuti where status = 'Disetujui' AND jenis_cuti = '  	Cuti Kematian Orang Tua/Mertua' AND nip = " . $nip)->num_rows();
-					if ($query >= 1) {
-						$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
-						redirect('pegawai/cuti', 'refresh');
-					} elseif ($quer >= 1) {
+					// if ($query >= 1) {
+					// 	$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
+					// 	redirect('pegawai/cuti', 'refresh');
+					// } 
+					if ($quer >= 1) {
 						$this->session->set_flashdata('gag', 'Pengajuan Cuti Gagal Karena anda sudah pernah cuti pada tahun ini');
 						redirect('pegawai/cuti', 'refresh');
 					} else {
@@ -269,12 +276,13 @@ class Cuti extends CI_Controller
 						redirect('pegawai/cuti', 'refresh');
 					}
 				} elseif ($jenis_cuti == "10") {
-					$query = $this->db->query("SELECT * from tb_cuti WHERE year(tanggal_mulai) = date('Y') and jenis_cuti ='Cuti Kematian Sdr/Istri/Suami' AND nip = " . $nip)->num_rows();
+					// $query = $this->db->query("SELECT * from tb_cuti WHERE year(tanggal_mulai) = date('Y') and jenis_cuti ='Cuti Kematian Sdr/Istri/Suami' AND nip = " . $nip)->num_rows();
 					$quer = $this->db->query("SELECT * from tb_cuti where status = 'Disetujui' AND jenis_cuti ='Cuti Kematian Sdr/Istri/Suami' AND nip = " . $nip)->num_rows();
-					if ($query >= 1) {
-						$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Telah Melebihi batas maksimum');
-						redirect('pegawai/cuti', 'refresh');
-					} elseif ($quer >= 1) {
+					// if ($query >= 1) {
+					// 	$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Telah Melebihi batas maksimum');
+					// 	redirect('pegawai/cuti', 'refresh');
+					// } 
+					if ($quer >= 1) {
 						$this->session->set_flashdata('gag', 'Pengajuan Cuti Gagal Karena anda sudah pernah cuti pada tahun ini');
 						redirect('pegawai/cuti', 'refresh');
 					} else {
@@ -293,12 +301,13 @@ class Cuti extends CI_Controller
 						redirect('pegawai/cuti', 'refresh');
 					}
 				} elseif ($jenis_cuti == "11") {
-					$query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Khitanan Anak' AND nip = " . $nip)->num_rows();
+					// $query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Khitanan Anak' AND nip = " . $nip)->num_rows();
 					$quer = $this->db->query("SELECT * from tb_cuti where status = 'Disetujui' AND jenis_cuti = '  	Cuti Khitanan Anak' AND nip = " . $nip)->num_rows();
-					if ($query >= 1) {
-						$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
-						redirect('pegawai/cuti', 'refresh');
-					} elseif ($quer >= 1) {
+					// if ($query >= 1) {
+					// 	$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
+					// 	redirect('pegawai/cuti', 'refresh');
+					// } 
+					if ($quer >= 1) {
 						$this->session->set_flashdata('gag', 'Pengajuan Cuti Gagal Karena anda sudah pernah cuti pada tahun ini');
 						redirect('pegawai/cuti', 'refresh');
 					} else {
@@ -317,12 +326,13 @@ class Cuti extends CI_Controller
 						redirect('pegawai/cuti', 'refresh');
 					}
 				} elseif ($jenis_cuti == "12") {
-					$query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti PMP' AND nip = " . $nip)->num_rows();
+					// $query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti PMP' AND nip = " . $nip)->num_rows();
 					$quer = $this->db->query("SELECT * from tb_cuti where status = 'Disetujui' AND jenis_cuti = '  	Cuti PMP' AND nip = " . $nip)->num_rows();
-					if ($query >= 1) {
-						$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
-						redirect('pegawai/cuti', 'refresh');
-					} elseif ($quer >= 1) {
+					// if ($query >= 1) {
+					// 	$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
+					// 	redirect('pegawai/cuti', 'refresh');
+					// } 
+					if ($quer >= 1) {
 						$this->session->set_flashdata('gag', 'Pengajuan Cuti Gagal Karena anda sudah pernah cuti pada tahun ini');
 						redirect('pegawai/cuti', 'refresh');
 					} else {
@@ -341,12 +351,13 @@ class Cuti extends CI_Controller
 						redirect('pegawai/cuti', 'refresh');
 					}
 				} elseif ($jenis_cuti == "13") {
-					$query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Pernikahan Anak Pegawai' AND nip = " . $nip)->num_rows();
+					// $query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Pernikahan Anak Pegawai' AND nip = " . $nip)->num_rows();
 					$quer = $this->db->query("SELECT * from tb_cuti where status = 'Disetujui' AND jenis_cuti = '  	Cuti Pernikahan Anak Pegawai' AND nip = " . $nip)->num_rows();
-					if ($query >= 1) {
-						$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
-						redirect('pegawai/cuti', 'refresh');
-					} elseif ($quer >= 1) {
+					// if ($query >= 1) {
+					// 	$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
+					// 	redirect('pegawai/cuti', 'refresh');
+					// } 
+					if ($quer >= 1) {
 						$this->session->set_flashdata('gag', 'Pengajuan Cuti Gagal Karena anda sudah pernah cuti pada tahun ini');
 						redirect('pegawai/cuti', 'refresh');
 					} else {
@@ -365,12 +376,13 @@ class Cuti extends CI_Controller
 						redirect('pegawai/cuti', 'refresh');
 					}
 				} elseif ($jenis_cuti == "14") {
-					$query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Tahunan' AND nip = " . $nip)->num_rows();
+					// $query = $this->db->query("SELECT * from tb_cuti WHERE jenis_cuti ='Cuti Tahunan' AND nip = " . $nip)->num_rows();
 					$quer = $this->db->query("SELECT * from tb_cuti where status = 'Disetujui' AND jenis_cuti = '  	Cuti Tahunan' AND nip = " . $nip)->num_rows();
-					if ($query >= 1) {
-						$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
-						redirect('pegawai/cuti', 'refresh');
-					} elseif ($quer >= 1) {
+					// if ($query >= 1) {
+					// 	$this->session->set_flashdata('gagal', 'Pengajuan Cuti Gagal Karena Anda sudah pernah cuti pada tahun ini');
+					// 	redirect('pegawai/cuti', 'refresh');
+					// } 
+					if ($quer >= 1) {
 						$this->session->set_flashdata('gag', 'Pengajuan Cuti Gagal Karena anda sudah pernah cuti pada tahun ini');
 						redirect('pegawai/cuti', 'refresh');
 					} else {
